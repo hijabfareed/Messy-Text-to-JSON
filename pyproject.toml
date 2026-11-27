@@ -1,0 +1,21 @@
+[project]
+name = "assignment-02-messy-text-to-json"
+version = "0.1.0"
+description = "Transform messy real-world text into structured JSON using Gemini and Pydantic validation."
+readme = "README.md"
+authors = [
+    { name = "Hijab Fareed", email = "185679365+hijabfareed@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "google-genai>=3.6.1",
+    "pydantic>=2.14.4",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+assignment-02-messy-text-to-json = "assignment_02_messy_text_to_json:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
