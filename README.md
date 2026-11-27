@@ -287,19 +287,6 @@ The application follows these steps:
 8. Print the validated JSON to standard output.
 9. Return an error exit code if all attempts fail.
 
-```mermaid
-flowchart TD
-    A[Messy Job Advertisement] --> B[Load Extraction Prompt]
-    B --> C[Gemini API]
-    C --> D[Generated JSON]
-    D --> E[Pydantic Validation]
-    E --> F{Valid Response?}
-    F -->|Yes| G[Print Validated JSON]
-    F -->|No| H{Attempts Remaining?}
-    H -->|Yes| I[Send Validation Error as Feedback]
-    I --> C
-    H -->|No| J[Exit with Error Code 1]
-```
 
 ## Example Input and Output
 
