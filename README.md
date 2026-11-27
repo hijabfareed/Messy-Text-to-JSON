@@ -93,9 +93,10 @@ Messy-Text-to-JSON/
 
 ### Main Files
 
-| File         | Description |
-| extract.py   | Handles input, Gemini API requests, validation, retries, and JSON output. |
-| schema.py    | Defines the Pydantic model named `Extracted`. |
+| File | Description |
+|---|---|
+| extract.py | Handles input, Gemini API requests, validation, retries, and JSON output. |
+| schema.py | Defines the Pydantic model named `Extracted`. |
 | prompts/extract.txt | Contains instructions for extracting job information. |
 | samples/inputs/ | Contains five normal inputs and two edge cases. |
 | samples/outputs/ | Contains the generated JSON outputs. |
@@ -527,6 +528,30 @@ The `.env` file is excluded from version control through `.gitignore`.
 The repository provides `.env.example` so that other users can configure their own credentials without sharing an actual API key.
 
 API keys should never be hardcoded in Python files, included in sample outputs, or committed to Git history.
+
+## Fresh Clone Verification
+
+After completing the project, I cloned the repository into a separate directory to check whether it could run in a new environment without relying on my original project setup.
+
+I installed the dependencies using `uv sync --locked`, configured the environment variables, and ran the application with a new job advertisement.
+
+| Verification | Result |
+|---|---|
+| Repository cloning | Passed |
+| Dependency installation | Passed |
+| Gemini API execution | Passed |
+| Structured JSON extraction | Passed |
+| Missing field handling | Passed |
+| Automated unit tests (2/2) | Passed |
+| Saved JSON validation (7/7) | Passed |
+| Environment file excluded from Git | Passed |
+| Git working tree | Clean |
+
+The application successfully extracted information from a new job advertisement on the first attempt and returned exit code 0.
+
+Both automated tests passed, and all seven saved JSON outputs were successfully validated against the Pydantic schema.
+
+This confirmed that the project could be set up and executed from a fresh clone on Windows without modifying the source code.
 
 ## Project Limitations
 
